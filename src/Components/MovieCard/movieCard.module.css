@@ -1,0 +1,57 @@
+.movieImg{
+    margin-top: 10px;
+    height: 70%;
+    position: relative;
+}
+.movieImg:hover{
+    z-index: -5;
+}
+
+.titleAndYearContainer{
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+.loading{
+    margin-top: 10%;
+}
+.paperShadow{
+    border-width: 0 !important;
+    background-color: #e6ee9c !important;
+    z-index: 0;
+}
+.moreInfo::clicked{
+    z-index: 55;
+    background-color: blue;
+    justify-items: first baseline;
+}
+
+.paperShadow:hover{
+    background-color: #90caf9;
+    box-shadow: -3px 12px 24px -13px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -3px 12px 24px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 12px 24px -13px rgba(0,0,0,0.75);
+    cursor: pointer;
+    background-color: #dae671 !important;
+    
+      
+}
+.paperShadow{
+    border-radius: 5% !important;
+}
+  
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
