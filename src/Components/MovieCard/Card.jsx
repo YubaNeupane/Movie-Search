@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SimplePaper({data}) {
   const classes = useStyles();
   const imgUrl = "https://image.tmdb.org/t/p/original"
-  console.log(data)
   if(data[0]){
     return (
       

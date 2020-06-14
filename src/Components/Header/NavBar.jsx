@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -62,8 +62,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
+
 
   return (
     <div className={classes.root}>
@@ -78,6 +79,12 @@ export default function SearchAppBar() {
             </div>
             <InputBase
               placeholder="Search…"
+              onKeyPress={(e)=>{
+                if (e.key === "Enter") {
+                  props.handleNewMovie(e.target.value)
+                }
+
+              }}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
