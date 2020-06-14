@@ -1,10 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, StylesProvider } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import styles  from './navbar.module.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,8 +72,8 @@ export default function SearchAppBar(props) {
       <AppBar position="fixed" >
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Movie Search
-          </Typography> 
+          <a href="/" className={styles.mainLink}>Movie Search</a>
+          </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

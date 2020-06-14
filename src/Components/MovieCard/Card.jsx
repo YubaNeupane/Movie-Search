@@ -5,6 +5,7 @@ import styles from './movieCard.module.css'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import cx from 'classnames'
 import noImage from "../../Images/noImage.png"
+import { Button } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +32,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SimplePaper({data}) {
   const classes = useStyles();
   const imgUrl = "https://image.tmdb.org/t/p/original"
-  console.log(data)
   if(data[0]){
     return (
-      
       <div className={classes.root} >
         {data.map(d =>{
           return(
@@ -43,7 +42,6 @@ export default function SimplePaper({data}) {
                 <div className={styles.titleAndYearContainer}>
                   <h3>{d.title}</h3>
                   <h5>{d.vote_average}</h5>
-                  
                 </div>
               
           </Paper>
@@ -53,12 +51,24 @@ export default function SimplePaper({data}) {
       </div>
     );
   }else{
-    return (
-      <div className={styles.loading} >
-        <CircularProgress size = {280} color="secondary" />
-        <h1>Loading...</h1>
-      </div>
-    )
+    if(data[0]){
+      return (
+        <div className={styles.loading} >
+          <CircularProgress size = {280} color="secondary" />
+          <h1>Loading...</h1>
+        </div>
+      )
+    }else{
+      return (
+        <div className={styles.loading} >
+          <CircularProgress size = {280} color="secondary" />
+          <h1>No Result Found!</h1>
+          <a href='/'><Button variant="contained" color="primary" disableElevation>GO BACK</Button></a>
+        </div>
+      )
+
+    }
+
   }
   
 }

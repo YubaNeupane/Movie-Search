@@ -21,7 +21,7 @@ class App extends React.Component{
   }
 
   newMovieTyped = async(name)=>{
-    if(name == ""){
+    if(name === ""){
       this.setState({searchMovies: null})
     }else{
       const searchMovieData = await searchMovieByName(name)
@@ -32,7 +32,7 @@ class App extends React.Component{
   }
   
   showSerchedMovieTag(movieList){
-    if(movieList != undefined){
+    if(movieList !== undefined){
       return(
         <div>
           <h1>Searched Movies</h1>
@@ -53,7 +53,6 @@ class App extends React.Component{
         <NavBar searchState={this.state.searchInput} handleNewMovie={this.newMovieTyped}/>
         {this.state.searchMovies== null?
          <div>
-          <h1>Popular Movies</h1>
           <MovieCard className={styles.MovieCard} data={populMovie}/>
         </div>: this.showSerchedMovieTag(this.state.searchMovies)}
       </div>
