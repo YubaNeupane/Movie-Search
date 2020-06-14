@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import styles from './movieCard.module.css'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import cx from 'classnames'
+import noImage from "../../Images/noImage.png"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SimplePaper({data}) {
   const classes = useStyles();
   const imgUrl = "https://image.tmdb.org/t/p/original"
+  console.log(data)
   if(data[0]){
     return (
       
@@ -37,7 +39,7 @@ export default function SimplePaper({data}) {
         {data.map(d =>{
           return(
             <Paper key = {d.id} className={cx(styles.paperShadow)}>
-                <img className = {styles.movieImg}src={imgUrl+ `${d.poster_path}`} alt=""></img>
+                <img className = {styles.movieImg} src={d.poster_path != null ? (imgUrl+ `${d.poster_path}`): noImage} alt=""></img>
                 <div className={styles.titleAndYearContainer}>
                   <h3>{d.title}</h3>
                   <h5>{d.vote_average}</h5>
