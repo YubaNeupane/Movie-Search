@@ -47,7 +47,6 @@ class App extends React.Component{
 
   
   render(){
-    console.log(this.state.searchMovies)
     let populMovie = this.state.popularMovies;
     return (
       <div className="App">
